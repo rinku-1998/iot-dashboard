@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Car plate add</title>
+    </head>
+    <body>
+        <h1>Sign In</h1>
+        <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+        {{ form.number_plate.label }}<br>
+        {{ form.number_plate(size=8) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+        </form>
+    </body>
+</html>
+

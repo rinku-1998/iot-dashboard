@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Flask-MQTT-SocketIO Test</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('mqtt_message', function(msg) {
+            $('#log').append('<br>' + $('<div/>').text('Received #' + ': ' + msg.carplate + ' ' + msg.time).html());
+        });
+
+    });
+    
+    </script>   
+</head>
+<body>
+    <div id='log'></div>
+</body>
+</html>
