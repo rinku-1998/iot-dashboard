@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         {% endif %}
-                        
+
                     </div> 
                 </div>
             </div>
@@ -68,8 +68,12 @@
                                         <tr>
                                             <td class="serial">{{ car.index(c)+1 }}</td>
                                             <td> {{ c.number_plate }} </td>
-                                            <td><span class="product">{{ c.get_entrytime() }}</span> </td>
-                                            <td><span class="product">{{ c.get_departtime() }}</span> </td>
+                                            <td><span class="product">{{ moment(c.entry_time).format('YYYY-MM-DD h:mm:ss A') }}</span> </td>
+                                            {% if c.depart_time %}
+                                            <td><span class="product">{{ moment(c.depart_time).format('YYYY-MM-DD h:mm:ss A') }}</span></td>
+                                            {% else %}
+                                            <td><span class="product">尚未離開</span></td>
+                                            {% endif %}
                                             <td><span class="product">{{ c.get_passedtime() }}</span></td>
                                             <td>
                                                 {% if c.get_status() >= 1 %}
@@ -86,6 +90,23 @@
                         </div>
                     </div>
                     <div class="col-lg">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="stat-widget-five">
+                                        <div class="stat-icon dib flat-color-4">
+                                            <i class="pe-7s-car"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="text-left dib">
+                                                <div class="stat-text"><span class="count">{{ car|length }}</span></div>
+                                                <div class="stat-heading">校內車輛數</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
                         <div id="in" class="card">
                             <div class="card-header">
                                 <strong class="card-title mb-3">最近進場車輛</strong>
@@ -94,7 +115,7 @@
                                 <div class="mx-auto d-block">
                                     <h3 class="text-sm-center mt-2 mb-1">{{ car[-1].number_plate }}</h3>
                                     <hr>
-                                    <h5 class="text-sm-center mt-2 mb-1">{{ car[-1].get_entrytime() }}</h5>
+                                    <h5 class="text-sm-center mt-2 mb-1">{{ moment(car[-1].entry_time).format('YYYY-MM-DD h:mm:ss A') }}</h5>
                                     <div class="location text-sm-center"><i class="fa fa-map-marker"></i> 雲科校門口</div>
                                 </div>
                             </div>
@@ -118,16 +139,16 @@
         </div>
         <!-- /.content -->
 
-        <div class="clearfix"></div>
+        <div class="clearfix "></div>
         <!-- Footer -->
-        <footer class="site-footer">
+        <footer class="site-footer align-items-end">
             <div class="footer-inner bg-white">
                 <div class="row">
                     <div class="col-sm-6">
-                        Copyright &copy; 2018 Ela Admin
+                        第十組 校園車輛監控系統
                     </div>
                     <div class="col-sm-6 text-right">
-                        Designed by <a href="https://colorlib.com">Colorlib</a>
+                        Designed by Team10</a>
                     </div>
                 </div>
             </div>

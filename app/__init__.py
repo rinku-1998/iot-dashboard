@@ -6,6 +6,8 @@ from flask_migrate import Migrate
 from flask_socketio import SocketIO
 from flask_mqtt import Mqtt
 from flask_login import LoginManager
+from flask_moment import Moment
+
 
 eventlet.monkey_patch()
 
@@ -17,6 +19,8 @@ login = LoginManager(app)
 login.login_view = 'login'
 socketio = SocketIO(app)
 mqtt = Mqtt(app)
+moment = Moment(app)
+
 
 from app import routes, models, errors
 

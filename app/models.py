@@ -24,12 +24,14 @@ class Car(db.Model):
     
     def get_entrytime(self):
         return self.entry_time.replace(microsecond=0).isoformat(' ')
+        #return self.entry_time
 
     def get_departtime(self):
         if self.depart_time is None:
             return '尚未離開'
         else:
             return self.depart_time.replace(microsecond=0).isoformat(' ')
+            #return self.depart_time
     
     def get_status(self):
         if self.depart_time is None:
@@ -40,7 +42,6 @@ class Car(db.Model):
         days, seconds = base_time.days, base_time.seconds
         hours = days * 24 + seconds // 3600
         return days
-
 
     def get_passedtime(self):
         if self.depart_time is None:
