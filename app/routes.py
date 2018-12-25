@@ -40,10 +40,14 @@ def login():
         return redirect(next_page)
     return render_template('login.html', form=form)
 
+
 @app.route('/logout')
 def logout():
-    logout_user()
-    return redirect(url_for('index'))
+    if not current_user.is_authenticated:
+        return redirect(url_for('index'))
+    else:
+        logout_user()
+        return redirect(url_for('index'))
 
 @app.route('/test')
 def test():

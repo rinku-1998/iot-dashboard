@@ -27,8 +27,11 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     {{ moment.include_jquery() }}
     {{ moment.include_moment() }}
-    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+
+    <!-- <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script> -->
+    <!-- <script type="text/javascript" src="//cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"></script> -->
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         var namespace = '/ns_mqtt';
@@ -55,7 +58,7 @@
                 $('#right-panel.right-panel > .content > .animated.fadeIn > .row > .col-lg > #out.card > .card-body > .mx-auto.d-block > h3 ').first().text(msg.carplate);
                 $('#right-panel.right-panel > .content > .animated.fadeIn > .row > .col-lg > #out.card > .card-body > .mx-auto.d-block > h5 ').first().text(moment.utc(msg.time).local().format('YYYY-MM-DD h:mm:ss A'));
                 $('#right-panel.right-panel > .content > .animated.fadeIn > .row > .col-lg > #out.card > .card-body > .mx-auto.d-block > h3 ').first().fadeIn();
-                $('#right-panel.right-panel > .content > .animated.fadeIn > .row > .col-lg > #out.card > .card-body > .mx-auto.d-block > h5 ').first().fadein();
+                $('#right-panel.right-panel > .content > .animated.fadeIn > .row > .col-lg > #out.card > .card-body > .mx-auto.d-block > h5 ').first().fadeIn();
             }
             console.log(msg);
         });
