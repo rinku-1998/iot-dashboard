@@ -35,7 +35,7 @@
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         var namespace = '/ns_mqtt';
-        var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+        var socket = io.connect('https://' + document.domain + ':' + location.port + namespace);
 
         socket.on('update', function(test) {
             /*$('#right-panel.right-panel > .content > .animated.fadeIn > .row > .col-lg-8 > .card > .table-stats.order-table.ov-h > .table > tbody ').children().remove();

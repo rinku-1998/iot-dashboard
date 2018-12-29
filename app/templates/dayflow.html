@@ -34,7 +34,7 @@
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         var namespace = '/ns_mqtt';
-        var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+        var socket = io.connect('https://' + document.domain + ':' + location.port + namespace);
         var label, data;
         var ctx_day = $("#chart-dayflow");
         var chart_dayflow = new Chart(ctx_day, {
