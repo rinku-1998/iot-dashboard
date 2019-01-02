@@ -10,3 +10,7 @@ class LoginForm(FlaskForm):
     username = StringField(validators=[DataRequired()])
     password = PasswordField(validators=[DataRequired()])
     submit = SubmitField('登入')
+
+class SearchForm(FlaskForm):
+    carplate = StringField(validators=[DataRequired()])
+    submit = SubmitField('查詢')

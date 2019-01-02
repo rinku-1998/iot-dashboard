@@ -74,28 +74,23 @@
         socket.on('chart', function(msg) {
             label = msg.label;
             data = msg.data;
-            console.log(data);
             updatechart(chart_dayflow);
         });
         socket.on('chart_dayflow', function(msg) {
             label = msg.label;
             data = msg.data;
-            console.log(data);
             updatechart(chart_dayflow);
         });
         socket.on('chart_daystatus', function(msg) {
             label = msg.label;
             data = msg.data;
-            console.log(data);
             updatechart(chart_overflow);
         });
         function updatechart(chart) {
             chart.data.labels = label;
             chart.data.datasets[0].data = data;
-            console.log(chart.data.datasets.data);
             chart.update();
         }
-
     });
     
     </script>  

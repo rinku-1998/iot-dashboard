@@ -17,7 +17,7 @@
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
                             <form class="search-form">
-                                
+                                {{ form.carplate(size=32, class_="form-control mr-sm-2", placeholder="搜尋車牌 ...") }}
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
                         </div>
@@ -49,9 +49,10 @@
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">校內車輛占留時間</strong>
+                                <strong class="card-title">您所查詢的車輛</strong>
                             </div>
                             <div class="table-stats order-table ov-h">
+                                {% if car %}
                                 <table class="table ">
                                     <thead>
                                         <tr>
@@ -64,7 +65,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% if car %}
+                                        
                                         {% for c in car %}
                                         <tr>
                                             <td class="serial">{{ car.index(c)+1 }}</td>
@@ -85,9 +86,14 @@
                                             </td>
                                         </tr>
                                         {% endfor %}
-                                        {% endif %}
+                                        
                                     </tbody>
                                 </table>
+                                {% else %}
+                                <div class="alert alert-primary" role="alert">
+                                    您所查詢的車輛不存在！
+                                </div>
+                                {% endif %}
                             </div> <!-- /.table-stats -->
                         </div>
                     </div>

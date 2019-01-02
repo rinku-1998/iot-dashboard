@@ -9,7 +9,7 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    MQTT_BROKER_URL = '192.168.198.132'
+    MQTT_BROKER_URL = '140.125.33.105'
     #MQTT_BROKER_URL = '137.116.170.68'
     MQTT_BROKER_PORT = 1883
     MQTT_REFRESH_TIME = 1.0  # refresh time in seconds

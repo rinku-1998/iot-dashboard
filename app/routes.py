@@ -1,7 +1,7 @@
 import json
 from app import app, db, socketio, mqtt
 from flask import render_template, redirect, url_for, request, flash
-from app.forms import AddCarForm, LoginForm
+from app.forms import AddCarForm, LoginForm, SearchForm
 from app.models import Car, User
 from flask_login import current_user, login_user, login_required, logout_user
 from flask_socketio import emit
@@ -15,14 +15,12 @@ from datetime import datetime, timedelta
 @app.route('/index')
 def index():
     current_car=Car.query.filter(Car.depart_time == None).order_by((Car.entry_time)).all()
-    #lastdepart_car=Car.query.filter(Car.depart_time != None).order_by(desc(Car.depart_time)).first()
     return render_template('index.html', car=current_car)
 
 @app.route('/dayflow')
 def dayflow():
     return render_template('dayflow.html')
     
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -40,7 +38,6 @@ def login():
         return redirect(next_page)
     return render_template('login.html', form=form)
 
-
 @app.route('/logout')
 def logout():
     if not current_user.is_authenticated:
@@ -48,14 +45,6 @@ def logout():
     else:
         logout_user()
         return redirect(url_for('index'))
-
-@app.route('/test')
-def test():
-    return render_template('socketio_test.html') 
-
-@app.route('/get_mqtt')
-def get_mqtt():
-    return render_template('mqtt_socketio.html') 
 
 @app.route('/addcar', methods=['GET', 'POST']) #Simulate uploading a carplate and judge data in db
 def plate_add():
